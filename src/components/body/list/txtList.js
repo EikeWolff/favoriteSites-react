@@ -8,5 +8,7 @@ export default {
     txt_fetchLinkEnd: '&Skip=0&Take=50',
 
     txt_search: 'Suchen',
-    txt_standardSearch: 'love'
+    txt_standardSearch: 'love',
+
+    txt_chaynsLink: 'http://chayns.net/'
 };
