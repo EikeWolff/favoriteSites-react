@@ -9,7 +9,7 @@ class List extends PureComponent {
     constructor() {
         super();
 
-        this.state = {
+        this.STARTING_STATE = {
             data: [
                 {
                     siteId: '75508-06235',
@@ -17,6 +17,7 @@ class List extends PureComponent {
                 }
             ]
         };
+        this.state = { ...this.STARTING_STATE };
 
         this.fetchData = this.fetchData.bind(this);
     }
@@ -29,9 +30,7 @@ class List extends PureComponent {
         const { fetchLinkStart, fetchLinkEnd } = this.props;
 
         chayns.showWaitCursor();
-        await fetch(
-            `${fetchLinkStart}${searchValue}${fetchLinkEnd}`
-        )
+        await fetch(`${fetchLinkStart}${searchValue}${fetchLinkEnd}`)
             .then(response => response.json())
             .then(data => this.setState({ data: data.Data }))
             .catch(error => console.log(error));
@@ -39,17 +38,30 @@ class List extends PureComponent {
     }
 
     render() {
-        const { open } = this.props;
+        const { open, dataGroup } = this.props;
         const { data } = this.state;
 
-        return <ListComponent data={data} open={open} onSearchEnter={this.fetchData}/>;
+        return (
+            <ListComponent
+                data={data}
+                open={open}
+                onSearchEnter={this.fetchData}
+                onClick={
+                    siteId => chayns.openUrlInBrowser(
+                        `${txtList.txt_chaynsLink}${siteId}`
+                    )
+                }
+                dataGroup={dataGroup}
+            />
+        );
     }
 }
 
 List.propTypes = {
     open: PropTypes.bool.isRequired,
     fetchLinkStart: PropTypes.string.isRequired,
-    fetchLinkEnd: PropTypes.string.isRequired
+    fetchLinkEnd: PropTypes.string.isRequired,
+    dataGroup: PropTypes.string.isRequired
 };
 
 export default List;
