@@ -8,10 +8,6 @@ function TextInput(props) {
     } = props;
 
     return (
-        <div
-            className={`input-group textInp ${!(values.value === '')
-                && 'labelRight'}`}
-        >
             <Input
                 regExp={pattern}
                 value={values.value}
@@ -21,7 +17,6 @@ function TextInput(props) {
                 dynamic
                 required
             />
-        </div>
     );
 }
 

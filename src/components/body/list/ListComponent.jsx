@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Accordion, List, ListItem } from 'chayns-components';
-import txt from './txtList';
+import TextItem from './TextItem';
+import txtList from './txtList';
 
 function ListComponent(props) {
     const {
- data, open, onSearch, onClick, dataGroup, onClose
-} = props;
+        data, open, onSearch, onClick, dataGroup, onClose
+    } = props;
+
     let itemKey = 0;
     const listItems = data.map((item) => {
         itemKey += 1;
@@ -16,11 +18,11 @@ function ListComponent(props) {
                 key={`${item.siteId}-${itemKey}`}
                 title={
                     item.appstoreName === ''
-                        ? txt.txt_noName
+                        ? txtList.txt_noName
                         : item.appstoreName
                 }
                 subtitle={item.siteId}
-                image={`${txt.txt_siteImage}${item.siteId}`}
+                image={`${txtList.txt_siteImage}${item.siteId}`}
                 onClick={() => onClick(item.siteId)}
             />
         );
@@ -28,15 +30,21 @@ function ListComponent(props) {
 
     return (
         <Accordion
-            head={txt.txt_title}
+            head={txtList.txt_title}
             open={open}
             onSearch={onSearch}
             onSearchEnter={onSearch}
-            searchPlaceholder={txt.txt_search}
+            searchPlaceholder={txtList.txt_search}
             dataGroup={dataGroup}
             onClose={onClose}
         >
-            <List>{listItems}</List>
+            <List>
+                {listItems.length === 0 ? (
+                    <TextItem text={txtList.txt_noElement}/>
+                ) : (
+                    listItems
+                )}
+            </List>
         </Accordion>
     );
 }

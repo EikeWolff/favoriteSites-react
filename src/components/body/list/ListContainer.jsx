@@ -10,12 +10,7 @@ class List extends PureComponent {
         super();
 
         this.STARTING_STATE = {
-            data: [
-                {
-                    siteId: '75508-06235',
-                    appstoreName: 'Loading...'
-                }
-            ]
+            data: []
         };
         this.state = { ...this.STARTING_STATE };
 
