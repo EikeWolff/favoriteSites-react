@@ -7,13 +7,16 @@ function TextInput(props) {
         onChange, values, name, pattern
     } = props;
 
+    const invalid = {}
+    if (!values.valid) invalid.invalid = 'invalid';
+
     return (
             <Input
                 regExp={pattern}
                 value={values.value}
-                valid={values.valid}
                 placeholder={name}
                 onChange={(value, valid) => onChange(name, value, valid)}
+                {...invalid}
                 dynamic
                 required
             />
