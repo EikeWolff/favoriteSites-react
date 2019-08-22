@@ -18,7 +18,6 @@ function ListComponent(props) {
             onClick={() => onClick(item.siteId)}
         />
     ));
-    console.log('1');
 
     return (
         <Accordion
