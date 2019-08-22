@@ -38,7 +38,7 @@ class List extends PureComponent {
     }
 
     render() {
-        const { open, dataGroup } = this.props;
+        const { open, dataGroup, onClose } = this.props;
         const { data } = this.state;
 
         return (
@@ -52,6 +52,7 @@ class List extends PureComponent {
                     )
                 }
                 dataGroup={dataGroup}
+                onClose={onClose}
             />
         );
     }
@@ -61,7 +62,8 @@ List.propTypes = {
     open: PropTypes.bool.isRequired,
     fetchLinkStart: PropTypes.string.isRequired,
     fetchLinkEnd: PropTypes.string.isRequired,
-    dataGroup: PropTypes.string.isRequired
+    dataGroup: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired
 };
 
 export default List;

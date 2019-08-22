@@ -6,7 +6,7 @@ import txtForm, { pattern } from './txtForm';
 
 function FormComponent(props) {
     const {
-        open, onChange, values, onSubmit, dataGroup
+        open, onChange, values, onSubmit, dataGroup, onClose
     } = props;
 
     return (
@@ -15,6 +15,7 @@ function FormComponent(props) {
             open={open}
             dataGroup={dataGroup}
             icon="ts-plus"
+            onClose={onClose}
         >
             <div className="accordion__content">
                 <TextInput
@@ -51,7 +52,8 @@ FormComponent.propTypes = {
     onChange: PropTypes.func.isRequired,
     values: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
-    dataGroup: PropTypes.string.isRequired
+    dataGroup: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired
 };
 
 export default FormComponent;

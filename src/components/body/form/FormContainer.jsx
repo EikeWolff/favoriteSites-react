@@ -81,7 +81,7 @@ class Form extends PureComponent {
     }
 
     render() {
-        const { open, dataGroup } = this.props;
+        const { open, dataGroup, onClose } = this.props;
 
         return (
             <FormComponent
@@ -90,6 +90,7 @@ class Form extends PureComponent {
                 onChange={this.handleChange}
                 onSubmit={this.handleClick}
                 dataGroup={dataGroup}
+                onClose={onClose}
             />
         );
     }
@@ -97,7 +98,8 @@ class Form extends PureComponent {
 
 Form.propTypes = {
     open: PropTypes.bool.isRequired,
-    dataGroup: PropTypes.string.isRequired
+    dataGroup: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired
 };
 
 export default Form;
