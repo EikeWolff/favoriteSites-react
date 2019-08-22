@@ -35,7 +35,7 @@ class Form extends PureComponent {
             [txtForm.txt_comnt]: comnt
         } = this.state;
 
-        const valid = name.valid && email.valid && url.valid;
+        const valid = name.valid && email.valid && url.valid && comnt.valid;
 
         if (valid) {
             const send = () => {
@@ -75,7 +75,7 @@ class Form extends PureComponent {
                     name.valid ? '' : txtForm.txt_name
                 } ${email.valid ? '' : txtForm.txt_email} ${
                     url.valid ? '' : txtForm.txt_url
-                }`
+                } ${comnt.valid ? '' : txtForm.txt_comnt}`
             );
         }
     }

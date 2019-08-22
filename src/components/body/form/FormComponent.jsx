@@ -12,39 +12,41 @@ function FormComponent(props) {
 
     return (
         <Accordion head={txtForm.txt_title} open={open} dataGroup={dataGroup}>
-            <Input
-                regExp={pattern.pattern_name}
-                placeholder={txtForm.txt_name}
-                value={values[txtForm.txt_name].value}
-                valid={values[txtForm.txt_name].valid}
-                onChange={(value, valid) => onChange(txtForm.txt_name, value, valid)
-                }
-                required
-            />
-            <Input
-                regExp={pattern.pattern_email}
-                placeholder={txtForm.txt_email}
-                value={values[txtForm.txt_email].value}
-                valid={values[txtForm.txt_email].valid}
-                onChange={(value, valid) => onChange(txtForm.txt_email, value, valid)
-                }
-                required
-            />
-            <Input
-                regExp={pattern.pattern_url}
-                placeholder={txtForm.txt_url}
-                value={values[txtForm.txt_url].value}
-                valid={values[txtForm.txt_url].valid}
-                onChange={(value, valid) => onChange(txtForm.txt_url, value, valid)
-                }
-                required
-            />
-            <TextArea
-                placeholder={txtForm.txt_comnt}
-                value={values[txtForm.txt_comnt].value}
-                onChange={value => onChange(txtForm.txt_comnt, value)}
-            />
-            <Button onClick={onSubmit}>{txtForm.txt_commitBtn}</Button>
+            <div className="accordion__content">
+                <Input
+                    regExp={pattern.pattern_name}
+                    placeholder={txtForm.txt_name}
+                    value={values[txtForm.txt_name].value}
+                    valid={values[txtForm.txt_name].valid}
+                    onChange={(value, valid) => onChange(txtForm.txt_name, value, valid)
+                    }
+                    required
+                />
+                <Input
+                    regExp={pattern.pattern_email}
+                    placeholder={txtForm.txt_email}
+                    value={values[txtForm.txt_email].value}
+                    valid={values[txtForm.txt_email].valid}
+                    onChange={(value, valid) => onChange(txtForm.txt_email, value, valid)
+                    }
+                    required
+                />
+                <Input
+                    regExp={pattern.pattern_url}
+                    placeholder={txtForm.txt_url}
+                    value={values[txtForm.txt_url].value}
+                    valid={values[txtForm.txt_url].valid}
+                    onChange={(value, valid) => onChange(txtForm.txt_url, value, valid)
+                    }
+                    required
+                />
+                <TextArea
+                    placeholder={txtForm.txt_comnt}
+                    value={values[txtForm.txt_comnt].value}
+                    onChange={value => onChange(txtForm.txt_comnt, value)}
+                />
+                <Button onClick={onSubmit}>{txtForm.txt_commitBtn}</Button>
+            </div>
         </Accordion>
     );
 }
