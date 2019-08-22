@@ -10,10 +10,10 @@ class Form extends PureComponent {
         super();
 
         this.STARTING_STATE = {
-            [txtForm.txt_name]: { value: '', valid: false },
-            [txtForm.txt_email]: { value: '', valid: false },
-            [txtForm.txt_url]: { value: '', valid: false },
-            [txtForm.txt_comnt]: { value: '', valid: true }
+            [txtForm.txt_name]: { value: txtForm.txt_defaultName, valid: false },
+            [txtForm.txt_email]: { value: txtForm.txt_defaultEmail, valid: false },
+            [txtForm.txt_url]: { value: txtForm.txt_defaultUrl, valid: false },
+            [txtForm.txt_comnt]: { value: txtForm.txt_defaultComnt, valid: true }
         };
         this.state = { ...this.STARTING_STATE };
 

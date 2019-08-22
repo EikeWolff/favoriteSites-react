@@ -11,7 +11,7 @@ function FormComponent(props) {
     } = props;
 
     return (
-        <Accordion head={txtForm.txt_title} open={open} dataGroup={dataGroup}>
+        <Accordion head={txtForm.txt_title} open={open} dataGroup={dataGroup} icon="ts-plus">
             <div className="accordion__content">
                 <Input
                     regExp={pattern.pattern_name}

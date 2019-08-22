@@ -6,6 +6,11 @@ export default {
     txt_url: 'Url',
     txt_comnt: 'Kommentar',
 
+    txt_defaultName: '',
+    txt_defaultEmail: '',
+    txt_defaultUrl: 'https://',
+    txt_defaultComnt: '',
+
     txt_commitBtn: 'Registrieren',
     txt_commitOk: 'Dein Vorschlag wurde registriert.',
     txt_commitFail: 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.',
