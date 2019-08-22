@@ -5,7 +5,7 @@ import txt from './txtList';
 
 function ListComponent(props) {
     const {
-        data, open, onSearchEnter, onClick, dataGroup, onClose
+        data, open, onSearch, onSearchEnter, onClick, dataGroup, onClose
     } = props;
     const listItems = data.map(item => (
         <ListItem
@@ -23,7 +23,8 @@ function ListComponent(props) {
         <Accordion
             head={txt.txt_title}
             open={open}
-            onSearchEnter={onSearchEnter}
+            onSearch={onSearch}
+            onSearchEnter={onSearch}
             searchPlaceholder={txt.txt_search}
             dataGroup={dataGroup}
             onClose={onClose}
@@ -36,6 +37,7 @@ function ListComponent(props) {
 ListComponent.propTypes = {
     open: PropTypes.bool.isRequired,
     data: PropTypes.array.isRequired,
+    onSearch: PropTypes.func.isRequired,
     onSearchEnter: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     dataGroup: PropTypes.string.isRequired,

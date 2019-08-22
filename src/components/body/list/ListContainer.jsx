@@ -19,11 +19,21 @@ class List extends PureComponent {
         };
         this.state = { ...this.STARTING_STATE };
 
+        this.timeout = null;
         this.fetchData = this.fetchData.bind(this);
+        this.onSearch = this.onSearch.bind(this);
     }
 
     componentDidMount() {
         this.fetchData(txtList.txt_standardSearch);
+    }
+
+    onSearch(searchValue) {
+        clearTimeout(this.timeout);
+
+        this.timeout = setTimeout(() => {
+            this.fetchData(searchValue);
+        }, 1000);
     }
 
     async fetchData(searchValue) {
@@ -45,7 +55,8 @@ class List extends PureComponent {
             <ListComponent
                 data={data}
                 open={open}
-                onSearchEnter={this.fetchData}
+                onSearch={this.onSearch}
+                onSearchEnter={this.onSearch}
                 onClick={
                     siteId => chayns.openUrlInBrowser(
                         `${txtList.txt_chaynsLink}${siteId}`
