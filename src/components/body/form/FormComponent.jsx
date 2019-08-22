@@ -9,6 +9,12 @@ function FormComponent(props) {
         open, onChange, values, onSubmit, dataGroup, onClose
     } = props;
 
+    const buttonStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    };
+
     return (
         <Accordion
             head={txtForm.txt_title}
@@ -41,7 +47,9 @@ function FormComponent(props) {
                     value={values[txtForm.txt_comnt].value}
                     onChange={value => onChange(txtForm.txt_comnt, value)}
                 />
-                <Button onClick={onSubmit}>{txtForm.txt_commitBtn}</Button>
+                <div style={buttonStyle}>
+                    <Button onClick={onSubmit}>{txtForm.txt_commitBtn}</Button>
+                </div>
             </div>
         </Accordion>
     );

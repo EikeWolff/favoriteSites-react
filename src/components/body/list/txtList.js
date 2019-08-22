@@ -3,6 +3,7 @@ export default {
 
     txt_siteImage: 'https://sub60.tobit.com/l/',
     txt_noName: 'Kein Seitenname vorhanden 😕',
+    txt_noElement: 'Keine Site gefunden 😕',
 
     txt_fetchLinkStart: 'https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=',
     txt_fetchLinkEnd: '&Skip=0&Take=50',
