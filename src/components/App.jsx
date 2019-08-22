@@ -35,7 +35,7 @@ class App extends PureComponent {
                     open={!openForm}
                     dataGroup="1"
                     onClose={() => {
-                        this.setState({ openForm: false });
+                        this.setState({ openForm: true });
                     }}
                 />
                 <Form

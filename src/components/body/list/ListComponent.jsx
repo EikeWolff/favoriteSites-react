@@ -5,19 +5,26 @@ import txt from './txtList';
 
 function ListComponent(props) {
     const {
-        data, open, onSearch, onSearchEnter, onClick, dataGroup, onClose
-    } = props;
-    const listItems = data.map(item => (
-        <ListItem
-            key={item.siteId}
-            title={
-                item.appstoreName === '' ? txt.txt_noName : item.appstoreName
-            }
-            subtitle={item.siteId}
-            image={`${txt.txt_siteImage}${item.siteId}`}
-            onClick={() => onClick(item.siteId)}
-        />
-    ));
+ data, open, onSearch, onClick, dataGroup, onClose
+} = props;
+    let itemKey = 0;
+    const listItems = data.map((item) => {
+        itemKey += 1;
+
+        return (
+            <ListItem
+                key={`${item.siteId}-${itemKey}`}
+                title={
+                    item.appstoreName === ''
+                        ? txt.txt_noName
+                        : item.appstoreName
+                }
+                subtitle={item.siteId}
+                image={`${txt.txt_siteImage}${item.siteId}`}
+                onClick={() => onClick(item.siteId)}
+            />
+        );
+    });
 
     return (
         <Accordion
@@ -38,7 +45,6 @@ ListComponent.propTypes = {
     open: PropTypes.bool.isRequired,
     data: PropTypes.array.isRequired,
     onSearch: PropTypes.func.isRequired,
-    onSearchEnter: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     dataGroup: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired
