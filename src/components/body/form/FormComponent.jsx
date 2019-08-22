@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
- Accordion, TextArea, Button
-} from 'chayns-components';
+import { Accordion, TextArea, Button } from 'chayns-components';
 import TextInput from './TextInput';
 import txtForm, { pattern } from './txtForm';
 
 function FormComponent(props) {
     const {
- open, onChange, values, onSubmit, dataGroup
-} = props;
+        open, onChange, values, onSubmit, dataGroup
+    } = props;
 
     return (
         <Accordion
@@ -19,9 +17,24 @@ function FormComponent(props) {
             icon="ts-plus"
         >
             <div className="accordion__content">
-                <TextInput onChange={onChange} values={values[txtForm.txt_name]} name={txtForm.txt_name} pattern={pattern.pattern_name}/>
-                <TextInput onChange={onChange} values={values[txtForm.txt_email]} name={txtForm.txt_email} pattern={pattern.pattern_email}/>
-                <TextInput onChange={onChange} values={values[txtForm.txt_url]} name={txtForm.txt_url} pattern={pattern.pattern_url}/>
+                <TextInput
+                    onChange={onChange}
+                    values={values[txtForm.txt_name]}
+                    name={txtForm.txt_name}
+                    pattern={pattern.pattern_name}
+                />
+                <TextInput
+                    onChange={onChange}
+                    values={values[txtForm.txt_email]}
+                    name={txtForm.txt_email}
+                    pattern={pattern.pattern_email}
+                />
+                <TextInput
+                    onChange={onChange}
+                    values={values[txtForm.txt_url]}
+                    name={txtForm.txt_url}
+                    pattern={pattern.pattern_url}
+                />
                 <TextArea
                     placeholder={txtForm.txt_comnt}
                     value={values[txtForm.txt_comnt].value}

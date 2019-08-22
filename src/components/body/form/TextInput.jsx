@@ -3,25 +3,24 @@ import PropTypes from 'prop-types';
 import { Input } from 'chayns-components';
 
 function TextInput(props) {
-    const { onChange, values, name, pattern } = props;
+    const {
+        onChange, values, name, pattern
+    } = props;
 
     return (
         <div
-            className={`input-group textInp ${!(
-                values.value === ''
-            ) && 'labelRight'}`}
+            className={`input-group textInp ${!(values.value === '')
+                && 'labelRight'}`}
         >
             <Input
                 regExp={pattern}
                 value={values.value}
                 valid={values.valid}
-                onChange={(value, valid) => onChange(name, value, valid)
-                }
+                placeholder={name}
+                onChange={(value, valid) => onChange(name, value, valid)}
+                dynamic
                 required
             />
-            <label className={!values.valid && 'input--invalid'}>
-                {name}
-            </label>
         </div>
     );
 }
