@@ -6,8 +6,8 @@ import txtList from './txtList';
 
 function ListComponent(props) {
     const {
-        data, open, onSearch, onClick, dataGroup, onClose
-    } = props;
+ data, open, onSearch, onClick, dataGroup, onClose
+} = props;
 
     let itemKey = 0;
     const listItems = data.map((item) => {
@@ -21,7 +21,16 @@ function ListComponent(props) {
                         ? txtList.txt_noName
                         : item.appstoreName
                 }
-                subtitle={item.siteId}
+                subtitle={(
+                    <a onClick={() => {
+                            chayns.openUrlInBrowser(
+                                `https://www.facebook.com/${item.facebookId}`
+                            );
+                        }}
+                    >
+                        Facebook
+                    </a>
+                )}
                 image={`${txtList.txt_siteImage}${item.siteId}`}
                 onClick={() => onClick(item.siteId)}
             />
@@ -40,7 +49,7 @@ function ListComponent(props) {
         >
             <List>
                 {listItems.length === 0 ? (
-                    <TextItem text={txtList.txt_noElement}/>
+                    <TextItem text={txtList.txt_noElement} />
                 ) : (
                     listItems
                 )}
