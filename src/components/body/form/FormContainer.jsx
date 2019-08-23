@@ -38,28 +38,26 @@ class Form extends PureComponent {
         const valid = name.valid && email.valid && url.valid && comnt.valid;
 
         if (valid) {
-            const send = () => {
+            const send = async () => {
                 const message = `${txtForm.txt_name}: ${name.value}\n ${
                     txtForm.txt_email
                 }: ${email.value}\n ${txtForm.txt_url}: ${url.value}\n ${
                     txtForm.txt_comnt
                 }: ${comnt.value}`;
 
-                chayns.intercom
+                const result = await chayns.intercom
                     .sendMessageToPage({
                         text: message
-                    })
-                    .then((result) => {
-                        if (result.ok) {
-                            this.setState({
-                                ...this.STARTING_STATE
-                            });
-
-                            chayns.dialog.alert('', txtForm.txt_commitOk);
-                        } else {
-                            chayns.dialog.alert('', txtForm.txt_commitFail);
-                        }
                     });
+                if (result.ok) {
+                    this.setState({
+                        ...this.STARTING_STATE
+                    });
+
+                    chayns.dialog.alert('', txtForm.txt_commitOk);
+                } else {
+                    chayns.dialog.alert('', txtForm.txt_commitFail);
+                }
             };
 
             if (chayns.env.user.isAuthenticated) {

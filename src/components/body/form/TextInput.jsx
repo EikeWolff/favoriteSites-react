@@ -7,7 +7,7 @@ function TextInput(props) {
         onChange, values, name, pattern
     } = props;
 
-    const invalid = {}
+    const invalid = {};
     if (!values.valid) invalid.invalid = 'invalid';
 
     return (

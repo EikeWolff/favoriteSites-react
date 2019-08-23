@@ -35,10 +35,11 @@ class List extends PureComponent {
         const { fetchLinkStart, fetchLinkEnd } = this.props;
 
         chayns.showWaitCursor();
-        await fetch(`${fetchLinkStart}${searchValue}${fetchLinkEnd}`)
-            .then(response => response.json())
-            .then(data => this.setState({ data: data.Data != null ? data.Data : [] }))
-            .catch(error => console.log(error));
+        const response = await fetch(`${fetchLinkStart}${searchValue}${fetchLinkEnd}`);
+        const json = await response.json();
+        const { Data: data } = json;
+
+        this.setState({ data: data || [] });
         chayns.hideWaitCursor();
     }
 
