@@ -21,16 +21,7 @@ function ListComponent(props) {
                         ? txtList.txt_noName
                         : item.appstoreName
                 }
-                subtitle={(
-                    <a onClick={() => {
-                            chayns.openUrlInBrowser(
-                                `https://www.facebook.com/${item.facebookId}`
-                            );
-                        }}
-                    >
-                        Facebook
-                    </a>
-                )}
+                subtitle={<a onClick={() => chayns.openUrlInBrowser(`https://www.facebook.com/${item.facebookId}`)}>Facebook</a>}
                 image={`${txtList.txt_siteImage}${item.siteId}`}
                 onClick={() => onClick(item.siteId)}
             />
